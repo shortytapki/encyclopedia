@@ -1,0 +1,20 @@
+
+
+{% extends "encyclopedia/layout.html" %}
+
+{% load static %}
+
+{% block title %}
+    {{title}}
+{% endblock %}
+
+{% block body%}
+    {% if entry %}
+        {{entry|safe}}
+    {% else %}
+        <div class="image-box">
+            <img src="{% static 'encyclopedia/not_found.gif' %}" alt="not found gif" height="380px">
+        </div>
+    {% endif %}
+{% endblock %}
+
