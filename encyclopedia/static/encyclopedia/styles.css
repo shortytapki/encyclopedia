@@ -37,8 +37,9 @@ textarea {
     margin-top: 5px;
 }
 
-form button {
+.btn {
     margin: 10px 0;
+    display: block;
 }
 
 .image-box {
@@ -51,4 +52,8 @@ form button {
 
 img {
     transform: translateY(20px);
+}
+
+.alert {
+    width: 80%
 }

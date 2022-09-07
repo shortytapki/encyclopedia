@@ -9,10 +9,11 @@
     <h1>Search results</h1>
     <ul>
       {% for result in results %}
-        <li><a href="wiki/{{entry}}">{{ result }}</a></li>
+        <li><a href="wiki/{{ result }}">{{ result }}</a></li>
       {% endfor %}
     </ul>
   {% else %}
-    <h1>Nothing was found for the query: {{ entry }}</h1>
+    <h1>Nothing was found for the query: {{ query }}</h1>
+<p>You can create the page with the name "{{ query }}" by visiting <a href="{% url 'create_page' %}">this link</a>.</p>
   {% endif %}
 {% endblock %}

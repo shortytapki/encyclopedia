@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create new page
+{% endblock %}
+
+{% block body %}
+    {% if page_exists %}
+        <h1>Create a new page</h1>
+        <p>Use markdown below to describe page content.</p>
+        <div class="alert alert-danger" role="alert">
+            The page with the name "{{ name }}" already exists!
+        </div>
+        <form action="{% url 'publish_new_page' %}">
+            <textarea name="page_text"></textarea>
+            <button type="submit" class="btn btn-primary">Create New Page</button>
+        </form>
+    {% else %}
+        <h1>Create a new page</h1>
+        <p>Use markdown below to describe page content.</p>
+        <form action="{% url 'publish_new_page' %}">
+            <textarea name="page_text"></textarea>
+            <button type="submit" class="btn btn-primary">Create New Page</button>
+        </form>
+    {% endif %}
+{% endblock %}
