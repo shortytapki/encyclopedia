@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-    {% if page_exists %}
+    {% if page_exists and not edit %}
         <h1>Create a new page</h1>
         <p>Use markdown below to describe page content.</p>
         <div class="alert alert-danger" role="alert">

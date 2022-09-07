@@ -11,6 +11,9 @@
 {% block body%}
     {% if entry %}
         {{entry|safe}}
+        <form action="edit/{{ title }}">
+            <button type="submit" class="btn btn-primary">Edit</button>
+        </form>
     {% else %}
         <div class="image-box">
             <img src="{% static 'encyclopedia/not_found.gif' %}" alt="not found gif" height="380px">

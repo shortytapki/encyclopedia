@@ -1,0 +1,14 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Editing {{ entry }}
+{% endblock %}
+
+{% block body %}
+    <h1>Now editing page: "{{ entry }}"</h1>
+    <form action="{% url 'publish_edited_page' %}">
+        <textarea name="page_text">{{ initial_content }}</textarea>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+{% endblock %}

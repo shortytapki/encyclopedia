@@ -58,6 +58,19 @@ def publish_new_page(request):
         return HttpResponseRedirect(f'wiki/{name}')
 
 
+def publish_edited_page(request):
+    md = request.GET.get('page_text')
+    html = parse_md(md)
+    name = html[html.find('<h1>') + 4: html.find('</h1>')]
+    util.save_entry(name, md)
+    return HttpResponseRedirect(f'wiki/{name}')
+
+
+def edit(request, page):
+    return render(request, "encyclopedia/edit.html", {
+        "initial_content": util.get_entry(page),
+        "entry": page
+    })
 
 def parse_md(content):
     return markdown(content) if content else content
